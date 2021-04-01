@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="headerbar">
+    <div id="scoreleft">
+        <span id="playerscore" class="score">000</span>
+    </div>
+    <div id="timecontroller">
+        <span id="controllertext" class="score">---</span>
+    </div>
+    <div id="scoreright">
+        <span id="opponentscore" class="score">000</span>
+    </div>
+</div>
+<div class="playingfield">
+    <canvas id="canvas" class="canvas">
+
+    </canvas>
+</div>
