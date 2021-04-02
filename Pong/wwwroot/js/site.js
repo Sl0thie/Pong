@@ -7,6 +7,13 @@ var centerX = 600;
 var centerY = 600;
 var speed = 1;
 
+var playery = 300;
+var oppoenty = 300;
+
+var playerspeed = 0;
+
+
+
 window.onload = function(){
     initialise();
 }
@@ -23,14 +30,27 @@ function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
     ctx.beginPath();
 
+    playery = playery + playerspeed;
+
+
+    if (playery <= 0) {
+        playery = 0;
+    }
+
+    if (playery >= 1000) {
+        playery = 1000;
+    }
+
+
+
     //Player
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillRect(100, 100, 30, 100);
+    ctx.fillRect(100, playery, 20, 100);
 
     //Opponent
     ctx.fillStyle = '#FFFFF';
-    ctx.fillRect(500, 100, 30, 100);  
-    
+    ctx.fillRect(500, oppoenty, 20, 100);
+
     //Ball
     ctx.beginPath();
     ctx.arc(centerX, centerY, 20, 0, 2 * Math.PI, false);
@@ -46,6 +66,7 @@ function render() {
         centerX = -100;
         speed++;
     }
+
     requestAnimationFrame(render);
 }
 
@@ -58,7 +79,26 @@ function resize() {
 function onKeyDown(event) {
     var keyCode = event.keyCode;
     console.log(keyCode);
-    event.preventDefault();
+    //event.preventDefault();
+
+    if (keyCode === 65) {
+        playerspeed--;
+        //if (playery <= 0) {
+        //    playery = 0;
+        //}
+    }
+
+    if (keyCode === 90) {
+        playerspeed++;
+        //if (playery >= 1000) {
+        //    playery = 1000;
+        //}
+    }
+
+
+
+
+
 
     //left a=65 z=90
 
