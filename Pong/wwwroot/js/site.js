@@ -41,8 +41,6 @@ function render() {
         playery = 1000;
     }
 
-
-
     //Player
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(100, playery, 20, 100);
