@@ -12,8 +12,6 @@ var oppoenty = 300;
 
 var playerspeed = 0;
 
-
-
 window.onload = function(){
     initialise();
 }
@@ -92,12 +90,6 @@ function onKeyDown(event) {
         //    playery = 1000;
         //}
     }
-
-
-
-
-
-
     //left a=65 z=90
 
     //right "=222 /=191
