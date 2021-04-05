@@ -108,15 +108,15 @@ function render() {
     }
 
     //Clear frame.
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height); //Clear the canvas.
     ctx.beginPath();
-    //Player
+    //Player paddle.
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(playerPaddleBack, playerY, playerPaddleWidth, playerPaddleHeight);
-    //Opponent
-    ctx.fillStyle = '#FFFFF';
+    //Opponent paddle.
+    ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(opponentPaddleFront, opponentY, opponentPaddleWidth, opponentPaddleHeight);
-    //Ball
+    //Ball.
     ctx.beginPath();
     ctx.arc(centerX, centerY, ballRadius, startAngle, endAngle, false);
     ctx.fillStyle = '#FFFFFF';
