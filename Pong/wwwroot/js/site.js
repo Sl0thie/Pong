@@ -36,6 +36,39 @@ let keysPressed = {};                //Array to handle multiple keydown events a
 
 let ping1 = new Audio('/sounds/1.wav');
 let ping2 = new Audio('/sounds/2.wav');
+let ping3 = new Audio('/sounds/3.wav');
+let ping4 = new Audio('/sounds/4.wav');
+let ping5 = new Audio('/sounds/5.wav');
+let ping6 = new Audio('/sounds/6.wav');
+let ping7 = new Audio('/sounds/7.wav');
+let ping8 = new Audio('/sounds/8.wav');
+let ping9 = new Audio('/sounds/9.wav');
+let ping10 = new Audio('/sounds/10.wav');
+let ping11 = new Audio('/sounds/11.wav');
+let ping12 = new Audio('/sounds/12.wav');
+let ping13 = new Audio('/sounds/13.wav');
+let ping14 = new Audio('/sounds/14.wav');
+let ping15 = new Audio('/sounds/15.wav');
+let ping16 = new Audio('/sounds/16.wav');
+let ping17 = new Audio('/sounds/17.wav');
+let ping18 = new Audio('/sounds/18.wav');
+let ping19 = new Audio('/sounds/19.wav');
+let ping20 = new Audio('/sounds/20.wav');
+let ping21 = new Audio('/sounds/21.wav');
+let ping22 = new Audio('/sounds/22.wav');
+let ping23 = new Audio('/sounds/23.wav');
+let ping24 = new Audio('/sounds/24.wav');
+let ping25 = new Audio('/sounds/25.wav');
+let ping26 = new Audio('/sounds/26.wav');
+let ping27 = new Audio('/sounds/27.wav');
+let ping28 = new Audio('/sounds/28.wav');
+let ping29 = new Audio('/sounds/29.wav');
+let ping30 = new Audio('/sounds/30.wav');
+let ping31 = new Audio('/sounds/31.wav');
+let ping32 = new Audio('/sounds/32.wav');
+let ping33 = new Audio('/sounds/33.wav');
+let ping34 = new Audio('/sounds/34.wav');
+let ping35 = new Audio('/sounds/35.wav');
 
 window.onload = function(){
     initialise();
@@ -58,6 +91,111 @@ function initialise() {
     render();
 }
 
+function playPing() {
+
+    switch (Math.floor((Math.random() * 35) + 1)) {
+        case 1:
+            ping1.play();
+            break;
+        case 2:
+            ping2.play();
+            break;
+        case 3:
+            ping3.play();
+            break;
+        case 4:
+            ping4.play();
+            break;
+        case 5:
+            ping5.play();
+            break;
+        case 6:
+            ping6.play();
+            break;
+        case 7:
+            ping7.play();
+            break;
+        case 8:
+            ping8.play();
+            break;
+        case 9:
+            ping9.play();
+            break;
+        case 10:
+            ping10.play();
+            break;
+        case 11:
+            ping11.play();
+            break;
+        case 12:
+            ping12.play();
+            break;
+        case 13:
+            ping13.play();
+            break;
+        case 14:
+            ping14.play();
+            break;
+        case 15:
+            ping15.play();
+            break;
+        case 16:
+            ping16.play();
+            break;
+        case 17:
+            ping17.play();
+            break;
+        case 18:
+            ping18.play();
+            break;
+        case 19:
+            ping19.play();
+            break;
+        case 20:
+            ping20.play();
+            break;
+        case 21:
+            ping21.play();
+            break;
+        case 22:
+            ping22.play();
+            break;
+        case 23:
+            ping23.play();
+            break;
+        case 24:
+            ping24.play();
+            break;
+        case 25:
+            ping25.play();
+            break;
+        case 26:
+            ping26.play();
+            break;
+        case 27:
+            ping27.play();
+            break;
+        case 28:
+            ping28.play();
+            break;
+        case 29:
+            ping29.play();
+            break;
+        case 30:
+            ping30.play();
+            break;
+        case 31:
+            ping31.play();
+            break;
+        case 32:
+            ping32.play();
+            break;
+        case 33:
+            ping33.play();
+            break;
+    }
+}
+
 function render() {
     if (keysPressed['a']) { playerY = playerY - paddleSpeed; }
     if (keysPressed['z']) { playerY = playerY + paddleSpeed; }
@@ -67,8 +205,16 @@ function render() {
     if (playerY >= height - playerPaddleHeight) { playerY = height - playerPaddleHeight; }
     if (opponentY <= 0) { opponentY = 0; }
     if (opponentY >= height - opponentPaddleHeight) { opponentY = height - opponentPaddleHeight; }
-    if (centerY < ballRadius) { angle = -angle; }
-    if (centerY > height - ballRadius) { angle = -angle; }
+    if (centerY < ballRadius)
+    {
+        angle = -angle;
+        playPing();
+    }
+    if (centerY > height - ballRadius)
+    {
+        angle = -angle;
+        playPing();
+    }
 
     centerX += speed * direction;
     centerY += speed * angle;
@@ -77,7 +223,7 @@ function render() {
         if ((centerX > opponentPaddleFront - ballRadius) && (centerX < opponentPaddleBack)){
             //check for hit.
             if ((centerY > opponentY - ballRadius) && (centerY < opponentY + opponentPaddleHeight + ballRadius)) {
-                ping1.play();
+                playPing();
                 direction = reverse;
                 angle = angle + ((opponentY - centerY - 50) * 0.001);
                 speed++;
@@ -93,7 +239,7 @@ function render() {
     else {
         if ((centerX < playerPaddleFront + ballRadius) && (centerX > playerPaddleBack)) {
             if ((centerY > playerY - ballRadius) && (centerY < playerY + playerPaddleHeight + ballRadius)) {
-                ping2.play();
+                playPing();
                 direction = forward;
                 angle = angle + ((opponentY - centerY - 50) * 0.001);
                 speed++;
